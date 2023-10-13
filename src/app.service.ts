@@ -1,8 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import { ethers, JsonRpcProvider } from 'ethers';
+
+const KEY =
+  'https://eth-mainnet.g.alchemy.com/v2/JXdhwdcgfdKMduVkqzWLPPt0bvSRv7Fe';
+
+const ALCHEMY_URL = 'https://eth-mainnet.g.alchemy.com/v2/';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  private provider(): JsonRpcProvider {
+    return new JsonRpcProvider(`${ALCHEMY_URL}${KEY}`);
+  }
+
+  async getBalance(address: string): Promise<number> {
+    const provider = this.provider();
+    const balance = await provider.getBalance(address);
+    return Number(ethers.formatEther(balance));
   }
 }
