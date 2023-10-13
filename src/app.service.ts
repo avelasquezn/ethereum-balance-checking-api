@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ethers, JsonRpcProvider } from 'ethers';
 
-const KEY =
-  'https://eth-mainnet.g.alchemy.com/v2/JXdhwdcgfdKMduVkqzWLPPt0bvSRv7Fe';
+const KEY = 'JXdhwdcgfdKMduVkqzWLPPt0bvSRv7Fe';
 
 const ALCHEMY_URL = 'https://eth-mainnet.g.alchemy.com/v2/';
 
